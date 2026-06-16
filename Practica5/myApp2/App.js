@@ -14,7 +14,11 @@ import{Perfil} from './components/Perfil';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Perfil nombre='Emily Hernández Eulogio' carrera='Ingeniería en Sistemas Computacionales' materia='Programación Móvil' cuatrimestre='9° cuatrimestre' />
+      <Perfil style={styles.tarjetaRosa}nombre='Emily Hernández Eulogio' carrera='Ingeniería en Sistemas Computacionales' materia='Programación Móvil' cuatrimestre='9° cuatrimestre' />
+
+      <Perfil style={styles.tarjetaRosa}nombre='Emily Hernández Eulogio' carrera='Ingeniería en Sistemas Computacionales' materia='Programación Móvil' cuatrimestre='9° cuatrimestre' />
+
+      <Perfil style={styles.tarjetaMorada} nombre='Mairin Hernández Eulogio' carrera='Ingeniería en Meca' materia='Programación Móvil' cuatrimestre='9° cuatrimestre' />
     </View>
   );
 }
@@ -24,7 +28,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly', // justifiycontent centra los elementos horizontalmenter
+    alinItems: 'space-evenly', // Centra los elementos vertical
+    flexDirection: 'row', // Cambia la dirección de los elementos a horizontal
+    
+    },
+
+  tarjetaRosa: {
+    backgroundColor: "pink",
+  },
+  tarjetaMorada:{
+    backgroundColor: "purple",
   },
 });
