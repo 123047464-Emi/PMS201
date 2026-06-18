@@ -1,18 +1,16 @@
 //Zona 1: importación de archivos y componentes.
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image} from 'react-native';
-import MenuScreen from './Screens/MenuScreen';
 
 
 //Zona2: Componentes
 
-
-
-
 //Perfil usando props
 export default function App() {
   return (
-    <MenuScreen>  </MenuScreen>
+    <View>
+        <Text>Aquí va la primera practica de componentes nativos</Text>
+    </View>
   );
 }
 
@@ -22,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'space-evenly', // justifiycontent centra los elementos horizontalmenter
-    alignItems: 'center', // Centra los elementos vertical
+    alinItems: 'space-evenly', // Centra los elementos vertical
     flexDirection: 'row', // Cambia la dirección de los elementos a horizontal
     
     }
