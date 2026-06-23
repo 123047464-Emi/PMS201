@@ -1,27 +1,62 @@
-//Zona 1: importación de archivos y componentes.
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image} from 'react-native';
+//1. Importamos las librerías necesarias
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, Button } from 'react-native';
 
+//2. Creamos la función principal
+const Practica1 = () => {
 
-//Zona2: Componentes
+  //3. Estado con lista de tareas
+  const [tareas, setTareas] = useState([
+    'Ir al gimnasio',
+    'Asistir a clases',
+    'Pasar lista en el charlees',
+    'Ver a la novia',
+    'Dormir temprano'
+  ]);
 
-//Perfil usando props
-export default function App() {
+  //4. Función para agregar tareas
+  const agregarTarea = () => {
+    setTareas([...tareas, `Nueva tarea ${tareas.length + 1}`]);
+  };
+
+  //5. Render de la interfaz
   return (
-    <View>
-        <Text>Aquí va la primera practica de componentes nativos</Text>
-    </View>
-  );
-}
+    <SafeAreaView style={styles.container}>
+      
+      <Button title="Agregar tarea" onPress={agregarTarea} />
 
-//Zona3: Estilos y posicionamiento
+      <ScrollView 
+        style={styles.scroll}
+        contentContainerStyle={styles.scrollContent}
+      >
+        {tareas.map((tarea, index) => (
+          <View key={index} style={styles.item}>
+            <Text>{tarea}</Text>
+          </View>
+        ))}
+      </ScrollView>
+
+    </SafeAreaView>
+  );
+};
+
+//6. Estilos
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'space-evenly', // justifiycontent centra los elementos horizontalmenter
-    alinItems: 'space-evenly', // Centra los elementos vertical
-    flexDirection: 'row', // Cambia la dirección de los elementos a horizontal
-    
-    }
+  },
+  scroll: {
+    flex: 1,
+  },
+  scrollContent: {
+    padding: 30,
+  },
+  item: {
+    marginBottom: 10,
+    padding: 15,
+    backgroundColor: 'pink',
+  }
 });
+
+export default Practica1;
