@@ -35,7 +35,7 @@ const ComponenteAlert = () => {
       {
         text: 'Cancelar',
         onPress: () => {
-          console.log('Presiona cancelar');
+          //console.log('Presiona cancelar');
           setMessage('Presionaste cancelar');
         },
         style: 'cancel',
@@ -43,7 +43,7 @@ const ComponenteAlert = () => {
       {
         text: 'Aceptar',
         onPress: () => {
-          console.log('Presiona aceptar');
+          //console.log('Presiona aceptar');
           setMessage('Presionaste aceptar');
         },
       },
@@ -72,9 +72,6 @@ const ComponenteAlert = () => {
 
       <View style={styles.button}>
         <Button title="Alerta de dos botones" onPress={createTwoButtonAlert} />
-      </View>
-
-      <View style={styles.button}>
         <Button title="Alerta de 3 botones" onPress={createThreeButtonAlert} />
       </View>
     </SafeAreaView>
