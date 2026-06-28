@@ -6,6 +6,8 @@ import ComponenteAlert from './ComponenteAlerta';
 import Practica1 from './Componente1'; 
 import PressableScreen from './ComponentePressable';
 import SwitchScreen from './SwitchScreen';
+import { Componente4_0 } from './Componente4_0';
+
 
 export default function App() {
   const [screen, setScreen] = useState('menu');
@@ -23,6 +25,8 @@ export default function App() {
       return <PressableScreen />;
     case 'SwitchScreen':
       return <SwitchScreen />;
+    case 'Componente4_0':
+      return <Componente4_0/>;
     default:
       return (
         <View style={styles.container}>
@@ -32,6 +36,7 @@ export default function App() {
           <Button title="Práctica SafeAreaView" onPress={() => setScreen('Practica1')} />
           <Button title="Práctica Pressable" onPress={() => setScreen('PressableScreen')} />
           <Button title="Práctica Switch" onPress={() => setScreen('SwitchScreen')} />
+          <Button title='Práctica TextInput' onPress={()=> setScreen('Componente4_0')}/>
           <StatusBar style="auto" />
         </View>
       );

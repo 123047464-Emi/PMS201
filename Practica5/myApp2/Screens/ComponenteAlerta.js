@@ -50,21 +50,32 @@ const ComponenteAlert = () => {
     ]);
 
   const createThreeButtonAlert = () =>
-    Alert.alert('Alerta de 3 botones', 'Elige una opción', [
+    Alert.alert(
+      'Alerta de 3 botones',
+      'Elige una opción',
+      [
+        {
+          text: 'Pregúntame más tarde',
+          onPress: () => setMessage('Pregúntame más tarde'),
+        },
+        {
+          text: 'Cancelar',
+          onPress: () => setMessage('Presionaste cancelar'),
+          style: 'cancel',
+        },
+        {
+          text: 'Aceptar',
+          onPress: () => setMessage('Presionaste aceptar'),
+        },
+      ],
+      //Cuarto parametro de nuestra alerta 
       {
-        text: 'Pregúntame más tarde',
-        onPress: () => setMessage('Pregúntame más tarde'),
-      },
-      {
-        text: 'Cancelar',
-        onPress: () => setMessage('Presionaste cancelar'),
-        style: 'cancel',
-      },
-      {
-        text: 'Aceptar',
-        onPress: () => setMessage('Presionaste aceptar'),
-      },
-    ]);
+        cancelable: true,
+        onDismiss: () => {
+          setMessage('La alerta se cerró sin elegir botón');
+        },
+      }
+  );
 
   return (
     <SafeAreaView style={styles.container}>

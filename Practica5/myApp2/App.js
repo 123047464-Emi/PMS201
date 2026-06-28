@@ -9,9 +9,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 //Zona2: Componentes
 
-
-
-
 //Perfil usando props
 export default function App() {
   return (
@@ -28,10 +25,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     justifyContent: 'space-evenly', // justifiycontent centra los elementos horizontalmenter
     alignItems: 'center', // Centra los elementos vertical
-    flexDirection: 'row', // Cambia la dirección de los elementos a horizontal
+    flexDirection: 'column' // Cambia la dirección de los elementos a horizontal
     
     }
 });

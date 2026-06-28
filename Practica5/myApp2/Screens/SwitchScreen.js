@@ -6,11 +6,12 @@ export default function SwitchScreen(){
     const [encendido, setEncendido] = useState(false);
 
     return(
-        <View style={[styles.container, { backgroundColor: encendido ? '#222' : '#fff' }]}>
+        <View style={[
+            styles.container,
+            { backgroundColor: encendido ? '#222' : '#FFF' },
+        ]}>
             <Text style={{ color: encendido ? 'white' : 'black' }}>
-                {
-                encendido ? 'Modo oscuro activado' : 'Modo oscuro desactivado'
-                }
+                {encendido ? 'Modo oscuro activado' : 'Modo oscuro desactivado'}
             </Text>
             <Switch
                 value={encendido}
@@ -27,9 +28,11 @@ export default function SwitchScreen(){
 
 //6. Estilos
 const styles = StyleSheet.create({
-  container: {
+    container: {
     flex: 1,
+    width: '100%',
     justifyContent:'center',
-    alignItems:'center',
-  }
+    alignItems:'center'
+    }
+
 });
