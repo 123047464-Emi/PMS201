@@ -7,7 +7,8 @@ import Practica1 from './Componente1';
 import PressableScreen from './ComponentePressable';
 import SwitchScreen from './SwitchScreen';
 import { Componente4_0 } from './Componente4_0';
-
+import  FlatListScreen  from './FlatListScreen';
+import SectionListScreen from './SectionListScreen';
 
 export default function App() {
   const [screen, setScreen] = useState('menu');
@@ -27,6 +28,11 @@ export default function App() {
       return <SwitchScreen />;
     case 'Componente4_0':
       return <Componente4_0/>;
+    case 'FlatListScreen':
+      return <FlatListScreen />;
+    case 'SectionListScreen':
+      return <SectionListScreen/>
+
     default:
       return (
         <View style={styles.container}>
@@ -37,6 +43,8 @@ export default function App() {
           <Button title="Práctica Pressable" onPress={() => setScreen('PressableScreen')} />
           <Button title="Práctica Switch" onPress={() => setScreen('SwitchScreen')} />
           <Button title='Práctica TextInput' onPress={()=> setScreen('Componente4_0')}/>
+          <Button title='Práctica FlatList' onPress={()=> setScreen('FlatListScreen')}/>
+          <Button title='Práctica SectionList' onPress={()=> setScreen('SectionListScreen')}/>
           <StatusBar style="auto" />
         </View>
       );
