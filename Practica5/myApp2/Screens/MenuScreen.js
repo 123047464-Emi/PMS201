@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button } from 'react-native';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TarjetasScreen from './TarjetasScreen';
 import ComponenteAlert from './ComponenteAlerta';
 import Practica1 from './Componente1'; 
@@ -9,9 +9,20 @@ import SwitchScreen from './SwitchScreen';
 import { Componente4_0 } from './Componente4_0';
 import  FlatListScreen  from './FlatListScreen';
 import SectionListScreen from './SectionListScreen';
+import SplashScreen from './SplashScreen';
+import { ImagenFondo } from './ImagenFondo';
+import { Home } from './Home';
 
 export default function App() {
   const [screen, setScreen] = useState('menu');
+  useEffect(() => {
+    if (screen === 'SplashScreen') {
+      const timer = setTimeout(() => {
+        setScreen('home');
+      }, 6000);
+      return () => clearTimeout(timer);
+    }
+  }, [screen]);
 
   switch (screen) {
     case 'TarjetasScreen':
@@ -32,7 +43,12 @@ export default function App() {
       return <FlatListScreen />;
     case 'SectionListScreen':
       return <SectionListScreen/>
-
+    case 'SplashScreen':
+      return <SplashScreen/>;
+    case 'ImagenFondo':
+      return <ImagenFondo/>;
+    case 'home':
+      return <Home/>;
     default:
       return (
         <View style={styles.container}>
@@ -45,6 +61,8 @@ export default function App() {
           <Button title='Práctica TextInput' onPress={()=> setScreen('Componente4_0')}/>
           <Button title='Práctica FlatList' onPress={()=> setScreen('FlatListScreen')}/>
           <Button title='Práctica SectionList' onPress={()=> setScreen('SectionListScreen')}/>
+          <Button title='Práctica Splash' onPress={()=>setScreen('SplashScreen')}/>
+          <Button title='Práctica Imagen fondo' onPress={()=>setScreen('ImagenFondo')}/>
           <StatusBar style="auto" />
         </View>
       );
@@ -55,8 +73,22 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'space-evenly',
+    /* Tanto para alignItems y alignItems ambos dependen del valor de flexDirection */
     alignItems: 'center',
-    flexDirection: 'column',
+    justifyContent: 'center',
+    flexDirection: 'column'
+    /* 
+    flexDirection: 'column'
+    justifyContent: 'flex-start',
+    justifyContent: 'center',
+    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
+    justifyContent: 'space-around',
+    justifyContent: 'space-evenly',
+    */
   },
+  botones: {
+    padding: 15,
+    margin: 15
+  }
 });
