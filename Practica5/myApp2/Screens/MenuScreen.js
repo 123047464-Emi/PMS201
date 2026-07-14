@@ -13,6 +13,7 @@ import SplashScreen from './SplashScreen';
 import { ImagenFondo } from './ImagenFondo';
 import { Home } from './Home';
 import ComponentesNativosScreen from './ComponentesNativosScreen';
+import ModalScreen from './ComponenteModal';
 
 export default function App() {
   const [screen, setScreen] = useState('menu');
@@ -52,6 +53,8 @@ export default function App() {
       return <Home/>;
     case 'ComponentesNativosScreen':
       return <ComponentesNativosScreen/>;
+    case 'ModalScreen':
+      return <ModalScreen />;
     default:
       return (
         <View style={styles.container}>
@@ -67,6 +70,7 @@ export default function App() {
           <Button title='Práctica Splash' onPress={()=>setScreen('SplashScreen')}/>
           <Button title='Práctica Imagen fondo' onPress={()=>setScreen('ImagenFondo')}/>
           <Button title='Práctica Componentes Nativos' onPress={()=>setScreen('ComponentesNativosScreen')}/>
+          <Button title='Práctica Componente Modal' onPress={() => setScreen('ModalScreen')} />
           <StatusBar style="auto" />
         </View>
       );
