@@ -1,12 +1,14 @@
-import {SafeAreaView,View,Text,FlatList,StyleSheet} from 'react-native';
-import React, {useState, useEffect} from 'react';
+import { SafeAreaView, View, Text, FlatList, StyleSheet, Pressable } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { router } from 'expo-router';
+
 
 export default function ConsultaUsuariosScreen() {
 
   const[ usuarios, setUsuarios] = useState([]);
   const obtenerUsuarios=async()=>{
     try{
-      const respuesta=await fetch('http://localhost:5000/v1/usuarios/');
+      const respuesta=await fetch('http://192.168.1.20:5000/v1/usuarios/');
       const datos= await respuesta.json();
       console.log('Respuesta API', datos);
 
@@ -30,6 +32,13 @@ export default function ConsultaUsuariosScreen() {
         Edad: {item.edad} años
       </Text>
 
+      {/*Boton de ver detalles */}
+      <Pressable style={styles.boton}onPress={() =>router.push({pathname:'/detalles',params:{nombre:item.nombre,edad:item.edad,
+      id:item.id}})}>
+        <Text style={styles.textBoton}>
+          Ver detalles
+        </Text>
+      </Pressable>
     </View>
   );
 
@@ -103,4 +112,17 @@ const styles = StyleSheet.create({
     color: '#4B5563',
   },
 
+  boton: {
+    backgroundColor: '#8bbef2',
+    paddingVertical: 5,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+
+  textBoton:{
+    color : '#051c4e',
+    fontWeight: 'bold',
+    fontSize: 14,
+  },
 });

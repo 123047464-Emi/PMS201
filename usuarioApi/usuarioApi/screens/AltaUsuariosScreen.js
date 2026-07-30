@@ -16,13 +16,13 @@ export default function App() {
 
   const guardarUsuario= async()=>{
     if (nombre.trim() === '' || edad.trim()===''){
-      mostrarMensaje("Vacios", "Llena nombre y edad para continuar, no deben existir nombres vacios")
+      mostrarMensaje("Vacios", "Llena nombre y edad para continuar,no deben existir campos vacios")
       return;
     }
 
     try{
       setCargando(true);
-      const respuesta= await fetch('http://localhost:5000/v1/usuarios/',
+      const respuesta= await fetch('http://192.168.1.20:5000/v1/usuarios/',
         {
           //definimos metodo, hacia donde va
           method: "POST",
