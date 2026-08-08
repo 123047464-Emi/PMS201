@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Repa 2",
+    "slug": "programacionmovil",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icono2.png",
+    "userInterfaceStyle": "light",
+
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+
+    "android": {
+      "package": "com.emily2005steam.programacionmovil",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/icono2.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+
+    "extra": {
+      "eas": {
+        "projectId": "0ebe5224-c7ba-487e-b854-33b1031049d8"
+      }
+    },
+
+    "owner": "emily2005s-team",
+
+    "plugins": [
+      "expo-font",
+      "expo-router",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "usesCleartextTraffic": true
+          }
+        }
+      ]
+    ]
+  }
+}
